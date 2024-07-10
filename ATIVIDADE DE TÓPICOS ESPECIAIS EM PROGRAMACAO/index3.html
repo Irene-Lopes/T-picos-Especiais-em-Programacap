@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Informações</title>
+    <script>
+        function validarInformacoes() {
+            let nome, idade, salario, sexo, estadoCivil;
+
+            do {
+                nome = prompt("Por favor, insira seu nome (maior que 3 caracteres):");
+                if (nome.length <= 3) {
+                    alert("Erro: O nome deve ter mais que 3 caracteres.");
+                }
+            } while (nome.length <= 3);
+
+            do {
+                idade = prompt("Por favor, insira sua idade (entre 0 e 150):");
+                idade = parseInt(idade);
+                if (isNaN(idade) || idade < 0 || idade > 150) {
+                    alert("Erro: A idade deve ser um número entre 0 e 150.");
+                }
+            } while (isNaN(idade) || idade < 0 || idade > 150);
+
+            do {
+                salario = prompt("Por favor, insira seu salário (maior que 0):");
+                salario = parseFloat(salario);
+                if (isNaN(salario) || salario <= 0) {
+                    alert("Erro: O salário deve ser um número maior que 0.");
+                }
+            } while (isNaN(salario) || salario <= 0);
+
+            do {
+                sexo = prompt("Por favor, insira seu sexo ('f' ou 'm'):");
+                if (sexo !== 'f' && sexo !== 'm') {
+                    alert("Erro: O sexo deve ser 'f' ou 'm'.");
+                }
+            } while (sexo !== 'f' && sexo !== 'm');
+
+            do {
+                estadoCivil = prompt("Por favor, insira seu estado civil ('s', 'c', 'v', 'd'):");
+                if (estadoCivil !== 's' && estadoCivil !== 'c' && estadoCivil !== 'v' && estadoCivil !== 'd') {
+                    alert("Erro: O estado civil deve ser 's', 'c', 'v' ou 'd'.");
+                }
+            } while (estadoCivil !== 's' && estadoCivil !== 'c' && estadoCivil !== 'v' && estadoCivil !== 'd');
+
+            alert("Informações válidas!\n" +
+                "Nome: " + nome + "\n" +
+                "Idade: " + idade + "\n" +
+                "Salário: " + salario + "\n" +
+                "Sexo: " + (sexo === 'f' ? "Feminino" : "Masculino") + "\n" +
+                "Estado Civil: " + estadoCivil.toUpperCase());
+        }
+    </script>
+</head>
+<body>
+    <h1>Validação de Informações</h1>
+    <button onclick="validarInformacoes()">Inserir Informações</button>
+</body>
+</html>

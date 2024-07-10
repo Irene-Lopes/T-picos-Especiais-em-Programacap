@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervalo de Números com Soma</title>
+    <script>
+        function gerarIntervaloESomar() {
+            let num1 = parseInt(prompt("Digite o primeiro número inteiro:"));
+            while (isNaN(num1)) {
+                num1 = parseInt(prompt("Valor inválido. Digite o primeiro número inteiro:"));
+            }
+
+            let num2 = parseInt(prompt("Digite o segundo número inteiro:"));
+            while (isNaN(num2)) {
+                num2 = parseInt(prompt("Valor inválido. Digite o segundo número inteiro:"));
+            }
+
+            let inicio = Math.min(num1, num2);
+            let fim = Math.max(num1, num2);
+            let resultado = '';
+            let soma = 0;
+
+            for (let i = inicio + 1; i < fim; i++) {
+                resultado += i + ' ';
+                soma += i;
+            }
+
+            document.getElementById('resultado').innerHTML = 
+                (resultado || "Não há números inteiros no intervalo.") + "<br>Soma: " + soma;
+        }
+    </script>
+</head>
+<body>
+    <h1>Gerar Intervalo de Números Inteiros com Soma</h1>
+    <button onclick="gerarIntervaloESomar()">Inserir Números</button>
+    <div id="resultado" style="margin-top: 20px;"></div>
+</body>
+</html>

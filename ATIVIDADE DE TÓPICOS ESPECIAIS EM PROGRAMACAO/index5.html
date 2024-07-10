@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Número</title>
+    <script>
+        function encontrarMaiorNumero() {
+            let numeros = [];
+            for (let i = 0; i < 5; i++) {
+                let numero = parseFloat(prompt("Digite o número " + (i + 1) + ":"));
+                while (isNaN(numero)) {
+                    numero = parseFloat(prompt("Valor inválido. Digite o número " + (i + 1) + ":"));
+                }
+                numeros.push(numero);
+            }
+
+            let maiorNumero = Math.max(...numeros);
+
+            document.getElementById('resultado').innerText = "O maior número é: " + maiorNumero;
+        }
+    </script>
+</head>
+<body>
+    <h1>Encontre o Maior Número</h1>
+    <button onclick="encontrarMaiorNumero()">Inserir Números</button>
+    <div id="resultado" style="margin-top: 20px;"></div>
+</body>
+</html>

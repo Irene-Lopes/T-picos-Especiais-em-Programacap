@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Usuário e Senha</title>
+    <script>
+        function solicitarUsuarioSenha() {
+            let usuario, senha;
+
+            do {
+                usuario = prompt("Por favor, insira seu nome de usuário:");
+                senha = prompt("Por favor, insira sua senha:");
+
+                if (usuario === senha) {
+                    alert("Erro: A senha não pode ser igual ao nome de usuário. Por favor, tente novamente.");
+                }
+            } while (usuario === senha);
+
+            alert("Obrigado! Usuário e senha válidos.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Exercício de Validação de Usuário e Senha</h1>
+    <button onclick="solicitarUsuarioSenha()">Inserir Usuário e Senha</button>
+</body>
+</html>
+
